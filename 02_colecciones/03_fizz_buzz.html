@@ -12,6 +12,7 @@
       <div id="resultado"></div>
     </div>
     <script>
+
         function fizz_buzz(max) {
           /*
             Ejercicio:
@@ -22,6 +23,7 @@
               (3) Muestra "FizzBuzz" cada vez que el número sea divisible por
                   los dos 3 y 5.
            */
+
           for (var i = 0; i <= max; i++) {
             print(i, true);
           }
@@ -29,9 +31,11 @@
         // ******************************************
         // No hay que cambiar nada de acá para abajo.
         // ******************************************
+
         function correr_fizz_buzz() {
           fizz_buzz(100);
         }
+
         function print(valor, append) {
           var resultado = document.querySelector("#resultado");
           if (append) {
@@ -40,6 +44,7 @@
             resultado.innerHTML = valor + "<br>";
           }
         }
+
     </script>
   </body>
 </html>
