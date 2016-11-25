@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Dinámico</title>
+  <link rel="stylesheet" href="../_recursos/main.css">
+</head>
+<body>
+  <h1>Select Dinámico</h1>
+
+  Selecciona un país:
+  <select name="pais" id="pais"></select>
+
+  <select name="presidentes" id="presidentes"></select>
+  <!-- los selects son los cuadros que aparecen en la pantalla en donde
+  seleccionas opciones, se crean "nodos" y ahí es donde vas a traer la
+  informacion de las variables/funciones que has creado-->
+
+  <script>
+var paises = ["México", "Estados Unidos", "Cuba", "Canadá"]; //arrays
+var select = document.querySelector("#pais"); //es para justamente decirle al
+//programa que te lleve aquí la info seleccionada. Siempre usar una variable
+//"select" para llevar "algo" al seleciconador.
+
+// ciclos / loop / bucles
+for(i in paises){ // i = indice (osea, los arrays o paises)
+  //console.log(i)
+  var pais = paises[i]
+  //console.log(pais);
+  select.innerHTML += "<option value=''>" + pais + "</option>";
+}
+
+
+var presidentes = {
+"México": "Enrique Peña Nieto",
+"Estados Unidos": "Barack Obama",
+"Cuba": "Raúl Castro",
+"Canadá": "Justin Trudeau",
+
+}
+
+var select_pres = document.querySelector("#presidentes");
+
+  for (p in presidentes){
+    var presidente_actual = presidentes[p];
+    select_pres.innerHTML += "<option value='"+ p +"'>" + presidente_actual + "</option>";
+  }
+
+
+  </script>
+</body>
+</html>

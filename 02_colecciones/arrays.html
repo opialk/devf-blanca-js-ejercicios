@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arreglos</title>
+  <link rel="stylesheet" href="../_recursos/main.css">
+</head>
+<body>
+  <h1> Arreglos </h1>
+
+  <label for="seleccion"> Escoge tu arma: </label>
+
+  <select name="seleccion" id="seleccion">
+    <option value="piedra"> Piedra </option>
+    <option value="papel"> Papel </option>
+    <option value="tijeras"> Tijeras </option>
+  </select>
+
+  <button onclick="jugar();">
+    JUGAR
+  </button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function jugar() {
+      var items = ["piedra", "papel", "tijeras"];
+      //             0      ,  1     ,    2
+      var seleccion_maquina = maquina_escoge(items);
+      var seleccion_jugador = document.querySelector("#seleccion").value;
+
+      var reglas = {
+        piedra:   {papel: "pierdes", tijeras: "ganas"},
+        papel:  {tijeras: "pierdes",  piedra: "ganas"},
+        tijeras: {piedra: "pierdes",   papel: "ganas"}
+      }
+
+
+      var ganador = definir_ganador(seleccion_jugador, seleccion_maquina, reglas);
+      dibujar("La maquina escogió: " + seleccion_maquina + ", por lo tanto: " + ganador);
+    }
+
+    function definir_ganador(s_jugador, s_maquina, reglas){
+
+      if(s_maquina == s_jugador){
+        return "empatas -.-";
+      }
+
+      var regla = reglas[s_jugador];
+      return regla [s_maquina];
+    }
+
+    function maquina_escoge(items){
+      var n_ramdom = Math.floor(Math.random() * 3);
+      return items[n_ramdom]
+    }
+
+    function dibujar(valor){
+      document.querySelector("#resultado").innerHTML = valor;
+    }
+    // function agregar_a_resultado(valor){
+    //   // append
+    // }
+  </script>
+</body>
+</html>
