@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html;
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -16,11 +16,30 @@
     <script>
 
         function dibujar_tabla() {
+
+        var minimo = parseInt(document.querySelector("#minimo").value);
+        var maximo = parseInt(document.querySelector("#maximo").value);
+        var resultado = document.querySelector("#resultado");
+
+
+        for(var i = minimo; i <= maximo; i++) {
+            for (var j = minimo; j <= maximo; j++) {
+                resultado.innerHTML += i + " * " + j + " == " + i*j + "<br>";
+            }
+
+        }
+
+
+
           /*
             Ejercicio: Leer minimo y maximo de la pagina, y dibujar una
             tabla con los productos de todos los numeros entre minimo y maximo.
            */
         }
+
+    function print (minimo, maximo, cruce){
+      var resultado = document.querySelector("#resultado").value;
+    }
 
     </script>
   </body>
