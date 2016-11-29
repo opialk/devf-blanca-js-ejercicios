@@ -10,8 +10,30 @@
     <div class="formulario">
       País: <select name="pais" id="pais" onchange="actualizar_estados();"></select><br>
       Estado: <select name="estado" id="estado"></select><br>
+      Código postal: <input type="text" name="codigo_postal" id="codigo_postal"
+      onchange="validar_codigo_postal();"><div id="cp_error"></div>
     </div>
     <script>
+
+        function validar_codigo_postal(){
+        console.log("Validando Código postal");
+        var codigo_postal = document.querySelector("#codigo_postal").value;
+
+        var mensaje = "";
+        if (isNaN(codigo_postal)){
+          mensaje += "Cógigo postal tiene que ser un número";
+        } else if (console.log)
+
+
+        if (!isNaN(codigo_postal)){
+
+        }
+
+        if (!isNaN)
+        }
+
+
+
         var estados = {
           'México': [
               'Aguascalientes', 'Baja California', 'Baja California Sur',
@@ -46,6 +68,12 @@
             Ejercicio 1: Cuando carga la página, llena el select de países
             con la lista de países.
          */
+        var elemento_pais = document.querySelector("#pais");
+
+        for (var pais in estados){
+        //console.log(pais);
+        elemento_pais.innerHTML += "<option>" + pais + "</option>";
+        }
 
         function actualizar_estados() {
           /*
@@ -53,7 +81,23 @@
             seleccionada en el select de países. Leyendo el valor actual
             de pais, llena el select de estados con la lista que corresponde.
            */
+           console.log("actualizar estados!!");
+           var pais_seleccionado = document.querySelector("#pais").value;
+           //console.log(pais_seleccionado);
+
+           //console.log(estados[pais_seleccionado])
+           var estados_actuales = estados[pais_seleccionado];
+            var elemento_estado = document.querySelector("#estado");
+            elemento_estado.innerHTML = "";
+
+           for (i in estados_actuales) {
+             //console.log(estados_actuales[i]);
+             var estado_actual = estados_actuales[i];
+             elemento_estado.innerHTML += "<option>" + estado_actual + "</option>";
+           }
         }
+
+        actualizar_estados();
 
     </script>
   </body>
